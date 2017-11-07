@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#aqi-display{
+	display: inline-block;
+	width: 200px;
+	height: 20px;
+	border: 1px solid red;
+}
+</style>
+<script type="text/javascript">
+window.onload=function() {alert(1);
+	var aqiInput=document.getElementById('aqi-input');
+	var button=document.getElementById('button');
+	var aqiDisplay=document.getElementById('aqi-display');
+	//js命名时，间隔符aqi-input是无效的，可以写成aqi_input;
+	button.onclick=function(){
+		aqiDisplay.innerHTML=aqiInput.value;
+		aqiInput.value="";
+	}
+
+}
+</script>
+</head>
+<body>
+	<label>请输入太原今天空气质量：<input id="aqi-input" type="text"/></label>
+	<button id="button">确认填写</button>
+	<div>您输入的值是：<span id="aqi-display">尚未录入</span></div>
+</body>
+</html>

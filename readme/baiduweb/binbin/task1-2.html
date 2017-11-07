@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+ul,li{
+	padding: 0;
+	margin: 0;
+}
+ul{
+	width: 300px;
+	border: 1px solid pink;
+	background: pink;
+}
+li{
+	border: 1px solid #fff;
+	width: 300px;
+	height: 30px;
+}
+</style>
+<script type="text/javascript">
+window.onload=function() {
+	var aqi_list=document.getElementById('aqi-list');
+	var aqiData = [
+	  ["北京", 90],
+	  ["上海", 50],
+	  ["福州", 10],
+	  ["广州", 50],
+	  ["成都", 90],
+	  ["西安", 100]
+	];
+	var num=["一","二","三","四","五","六"];
+	aqiData.sort(function(a,b){
+		return b[1]-a[1];
+	})
+	//aqiDate在此刻已重新排序了，按从小到大的顺序。
+	for(var i=0;i<aqiData.length;i++){
+		if (aqiData[i][1]>60){
+			var oLi=document.createElement("li");
+			var oText=document.createTextNode("第"+num[i]+"名:"+aqiData[i][0]+","+aqiData[i][1]);
+			oLi.appendChild(oText);
+			aqi_list.appendChild(oLi);
+			alert(oLi);
+		}
+	}
+
+}
+</script>
+</head>
+<body>
+	<h3>污染城市列表</h3>
+	<ul id="aqi-list">
+	</ul>
+</body>
+</html>
